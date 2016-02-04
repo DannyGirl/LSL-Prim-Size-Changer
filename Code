@@ -1,0 +1,29 @@
+vector size;
+default
+{
+    state_entry()
+    {
+        size = llGetScale();
+        llSetText((string)size, <1.0, 1.0, 1.0>, 1.0);
+    }
+    touch_start (integer num)
+    {
+        float Z = size.z;
+        float X = size.x;
+        float Y = size.y;
+        llSetScale(<size.x, size.y, size.z+2>);
+        llSetText((string)llGetScale(), <1.0, 1.0, 1.0>, 1.0);
+        llSleep(1.0);
+        llSetScale(<size.x+2, size.y, size.z+2>);
+        llSetText((string)llGetScale(), <1.0, 1.0, 1.0>, 1.0);
+        llSleep(1.0);
+        llSetScale(<size.x+2, size.y+2, size.z+2>);
+        llSetText((string)llGetScale(), <1.0, 1.0, 1.0>, 1.0);
+        llSleep(1.0);
+        llSetScale(size);
+        llSetText((string)llGetScale(), <1.0, 1.0, 1.0>, 1.0);
+        llSleep(1.0);
+        llSetScale(size);
+        llResetScript();
+    }
+}
